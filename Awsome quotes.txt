@@ -7,3 +7,4 @@
 "Im batman"
 "where is my super suit"
 "Your a wizard harry"
+"Fake News"
