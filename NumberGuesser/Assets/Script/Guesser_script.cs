@@ -7,6 +7,7 @@ public class Guesser_script : MonoBehaviour {
     public int max;
     public int min;
     private int guess;
+    public int count;
 
 	// Use this for initialization
 	private void Start () {
@@ -23,22 +24,33 @@ public class Guesser_script : MonoBehaviour {
 	}
 
     private void NextGuess() {
-        guess = (min + max) / 2;
+        count--;
+        //get guess to be random
+        //guess = (min + max) / 2;
+        guess = Random.Range(min, max);
         print("Is the number " + guess + "?");
     }
 
-	// Update is called once per frame
-	public void Update () {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+    // Update is called once per frame
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
             min = guess;
             NextGuess();
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
             max = guess;
             NextGuess();
         }
-        else if (Input.GetKeyDown(KeyCode.Return)) {
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
             print("COMPUTER WIN " + guess + "!");
         }
-	}
+        if (count < = 0) ;
+        {
+            print("YOU WIN");
+        }
+    }
 }
