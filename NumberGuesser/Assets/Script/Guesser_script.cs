@@ -31,6 +31,20 @@ public class Guesser_script : MonoBehaviour {
         print("Is the number " + guess + "?");
     }
 
+    /*public void RestartGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+           // print("Wanna play again? X or O");
+        else if (Input.GetKeyDown(KeyCode.N))
+            print("Wanna play agian? X or O");
+        else if (Input.GetKeyDown(KeyCode.X))
+            //end game
+
+        else if (Input.GetKeyDown(KeyCode.O))
+            //repeat game
+                
+    }*/
+
     // Update is called once per frame
     public void Update()
     {
@@ -48,9 +62,13 @@ public class Guesser_script : MonoBehaviour {
         {
             print("COMPUTER WIN " + guess + "!");
         }
-        if (count < = 0) ;
+        else if (Input.GetKeyDown(KeyCode.N))
         {
-            print("YOU WIN");
+            print("YOU WIN!");
+        }
+        else if (count <= 0)
+        {
+            print("Is this your number " + guess + "? If yes click enter, if not click N");
         }
     }
 }
