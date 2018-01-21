@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Guesser_script : MonoBehaviour {
@@ -11,16 +12,20 @@ public class Guesser_script : MonoBehaviour {
 
 	// Use this for initialization
 	private void Start () {
-        print("Wlecome to Number Guesser");
-        print("Pick a number between " + min + " and " + max);
+        //SceneManager.LoadScene(01);
+        //SceneManager.LoadSceneAsync(01);
+        {
+            print("Wlecome to Number Guesser");
+            print("Pick a number between " + min + " and " + max);
 
-        //Is the value GUESS
-        NextGuess();
-        //Instructions - Push these buttons
-        print("Up arrow for higher, Down arrow for lower, Enter for correct");
+            //Is the value GUESS
+            NextGuess();
+            //Instructions - Push these buttons
+            print("Up arrow for higher, Down arrow for lower, Enter for correct");
 
-        //This lets the number reach 1000
-        max = max + 1;
+            //This lets the number reach 1000
+            max = max + 1;
+        }
 	}
 
     private void NextGuess() {
@@ -31,19 +36,21 @@ public class Guesser_script : MonoBehaviour {
         print("Is the number " + guess + "?");
     }
 
-    /*public void RestartGame()
+   private void RestartGame()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-           // print("Wanna play again? X or O");
-        else if (Input.GetKeyDown(KeyCode.N))
-            print("Wanna play agian? X or O");
-        else if (Input.GetKeyDown(KeyCode.X))
-            //end game
-
-        else if (Input.GetKeyDown(KeyCode.O))
-            //repeat game
-                
-    }*/
+        print("Wanna play again? O or X");
+            
+        if (Input.GetKeyDown(KeyCode.X))
+            {
+                print("Thanks for playing");
+            }
+            else if (Input.GetKeyDown(KeyCode.O))
+            {
+            SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+                //NextGuess();
+                print("Me too...just have to figure out how to do that");
+            }
+    }
 
     // Update is called once per frame
     public void Update()
@@ -61,14 +68,17 @@ public class Guesser_script : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             print("COMPUTER WIN " + guess + "!");
+            RestartGame();
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
             print("YOU WIN!");
+            RestartGame();
         }
-        else if (count <= 0)
+        else if (count == 0)
         {
             print("Is this your number " + guess + "? If yes click enter, if not click N");
+            RestartGame();
         }
     }
 }
