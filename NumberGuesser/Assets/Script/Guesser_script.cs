@@ -37,9 +37,7 @@ public class Guesser_script : MonoBehaviour {
     }
 
    private void RestartGame()
-    {
-        print("Wanna play again? O or X");
-            
+    {    
         if (Input.GetKeyDown(KeyCode.X))
             {
                 print("Thanks for playing");
@@ -48,7 +46,7 @@ public class Guesser_script : MonoBehaviour {
             {
             SceneManager.LoadScene( SceneManager.GetActiveScene().name );
                 //NextGuess();
-                print("Me too...just have to figure out how to do that");
+                //print("Me too...just have to figure out how to do that");
             }
     }
 
@@ -68,11 +66,13 @@ public class Guesser_script : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             print("COMPUTER WIN " + guess + "!");
+            print("Wanna play again? O or X");
             RestartGame();
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
             print("YOU WIN!");
+            print("Wanna play again? O or X");
             RestartGame();
         }
         else if (count == 0)
