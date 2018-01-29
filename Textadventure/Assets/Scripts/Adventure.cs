@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,7 @@ public class Adventure : MonoBehaviour
     void Start()
     {
         currentState = States.Barrocks;
+        textobject.alignment = TextAnchor.UpperLeft;
     }
 
     // Update is called once per frame
@@ -103,22 +105,20 @@ public class Adventure : MonoBehaviour
         }
         else if (currentState == States.TownSquare)
         {
-            Enemys();
+            TownsSpuare();
+        }
+        else if (currentState == States.Cave)
+        {
+            Cave();
         }
     }
 
     private void Barrocks()
     {
-        print("You are a Knight who has just woken up to the caslte being attacked. \n" +
-            "You can either save the kingdom by shutting the gates or, \n" +
-            "Escape and survive. \n" +
-            "1. There is a Celler door in the middle of the room. \n" +
-            "2. There is a metal door leading to the Armory at the back of the room. \n" +
-            "3. There is a large wooden door leading outside to the CourtYard. \n" +
-            "Press 1, 2, or 3. \n");
         textobject.text = "You are a Knight who has just woken up to the caslte being attacked. \n" +
             "You can either save the kingdom by shutting the gates or, \n" +
             "Escape and survive. \n" +
+            "\n" +
             "1. There is a Celler door in the middle of the room. \n" +
             "2. There is a metal door leading to the Armory at the back of the room. \n" +
             "3. There is a large wooden door leading outside to the CourtYard. \n" +
@@ -132,13 +132,9 @@ public class Adventure : MonoBehaviour
 
     private void CourtYard()
     {
-        print("You have entered the CourtYard. \n" +
-            "If it wasnt for the sounds of battle it would be a beutiful day to be out side. \n" +
-            "1. Straight ahead leads to the Main Street, which is the quickest way to the Gate. \n" +
-            "2. To your right there is a tower that may or may not lead to where you want to go...You have really bad since of direction. \n" +
-            "Press 1 to go to the tower, 2 to head down MainStreet, 3 to go back to the barrocks");
         textobject.text = "You have entered the CourtYard. \n" +
-            "If it wasnt for the sounds of battle it would be a beutiful day to be out side. \n" +
+            "If it wasnt for the sounds of battle it would be a beutiful day to be out side.\n" +
+            " \n" +
             "1. Straight ahead leads to the Main Street, which is the quickest way to the Gate. \n" +
             "2. To your right there is a tower that may or may not lead to where you want to go...You have really bad since of direction. \n" +
             "3. Head back to the Barrocks.";
@@ -152,14 +148,10 @@ public class Adventure : MonoBehaviour
 
     private void Celler()
     {
-        print("The Celler is where you and the other knights would store goods or booze, since its nice and dark to keep the booze for longer time. \n" +
-            "Strange in the camotion of the invation it seems that someone had nocked over a shelf breaking the wall revailing an earry crevis leading to who knows where. \n" +
-            "Could this be what you have been looking for...a way out? \n" +
-            "1. Go through the scary looking whole. \n" +
-            "2. Head back to the barrocks and find another way. \n");
         textobject.text = "The Celler is where you and the other knights would store goods or booze, since its nice and dark to keep the booze for longer time. \n" +
-            "Strange in the camotion of the invation it seems that someone had nocked over a shelf breaking the wall revailing an earry crevis leading to who knows where. \n" +
-            "Could this be what you have been looking for...a way out? \n" +
+            "Strange in the camotion of the invation it seems that someone had nocked over a shelf breaking the wall revailing an earry crevis leading to who knows where. " +
+            "Could this be what you have been looking for...a way out?\n" +
+            " \n" +
             "1. Go through the scary looking whole. \n" +
             "2. Head back to the barrocks and find another way. \n";
         Title.text = "Celler";
@@ -170,13 +162,8 @@ public class Adventure : MonoBehaviour
 
     private void Armory()
     {
-        print("To the contary of the name the Armory is pretty empty. \n" +
-            "Over sleeping seems to have left you with only a Sheild and a lamp. \n" +
-            "Unfortanitly you where never the most physically gifted aong the knights, so you are only able to take one or the other. \n" +
-            "Take the Sheild press S, Take the Lamp press L. \n" +
-            "1. Go back to the Barrocks?");
         textobject.text = "To the contary of the name the Armory is pretty empty. \n" +
-            "Thats what you get for over sleeping. \n" +
+            "Thats what you get for over sleeping.\n \n" +
             "1. Go back to the Barrocks.";
         Title.text = "Armory";
 
@@ -209,15 +196,23 @@ public class Adventure : MonoBehaviour
     private void Gate()
     {
         print("");
-        textobject.text = "1. TowerWall.";
+        textobject.text = "You have reached the gate and have been able to close it stoping the enemy from entering the kingdom.\n" +
+            "The remaining enemy troops have been delt with by your fellow knights.\n" +
+            "";
         Title.text = "Gate";
-
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.TowerWall; }
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            textobject.text = "Thanks for playing";
+            Title.text = "Game Over";
+        }
     }
 
     private void Crack()
     {
-        print("");
         textobject.text = "1. Celler. \n" +
             "2. Cave.";
         Title.text = "Crack";
@@ -241,7 +236,8 @@ public class Adventure : MonoBehaviour
 
     private void RT()
     {
-        textobject.text = "";
+        textobject.text = "1. cave.\n" +
+            "2. Skylight.";
         Title.text = "Right Tunnel";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Cave; }
@@ -250,7 +246,8 @@ public class Adventure : MonoBehaviour
 
     private void SkyLight()
     {
-        textobject.text = "";
+        textobject.text = "1. freedom" +
+            "2. RT";
         Title.text = "SkyLight";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Freedom; }
@@ -259,8 +256,19 @@ public class Adventure : MonoBehaviour
 
     private void Freedom()
     {
-        textobject.text = "You Win";
+        textobject.text = "You Win\n" +
+            "Wanna play again?\n" +
+            "X  or  O";
         Title.text = "Freedom";
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            textobject.text ="Thanks for playing";
+            Title.text = "Game Over";
+        }
     }
 
     private void MT()
@@ -294,6 +302,15 @@ public class Adventure : MonoBehaviour
     {
         textobject.text = "You lose";
         Title.tag = "EvilCult";
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            textobject.text = "Thanks for playing";
+            Title.text = "Game Over";
+        }
     }
 
     private void LT()
@@ -307,8 +324,19 @@ public class Adventure : MonoBehaviour
 
     private void Hole()
     {
-        textobject.text = "You Lose";
+        textobject.text = "You Lose\n" +
+            "Want to play agian?\n" +
+            "X  or  O";
         Title.text = "Hole";
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            textobject.text = "Thanks for playing";
+            Title.text = "Game Over";
+        }
     }
 
     private void MainSt()
@@ -323,7 +351,19 @@ public class Adventure : MonoBehaviour
 
     private void TownsSpuare()
     {
-        textobject.text = "You lose.";
+        textobject.text = "You lose.\n" +
+            "Wanna play again?" +
+            "X  or  O";
         Title.text = "Enemys.";
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            textobject.text = "Thanks for playing";
+            Title.text = "Game Over";
+        }
     }
+
 }
