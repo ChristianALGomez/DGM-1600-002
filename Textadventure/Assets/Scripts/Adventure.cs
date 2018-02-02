@@ -10,8 +10,8 @@ public class Adventure : MonoBehaviour
     // change States to own states for knight game
     public enum States
     {
-        Barrocks, Celler, Armory, CourtYard, Tower, Gate, Crack, Cave, RT, MT, LT, Hole,
-        StoneStairsDown, OldRuins, EvilCult, MainSt, SkyLight, Freedom, TowerWall, TownSquare
+        Barrocks, Celler, CourtYard, Tower, Gate, Crack, Cave, RT, MT, LT, Hole,
+        StoneStairsDown, OldRuins, EvilCult, MainSt, SkyLight, Freedom, TowerWall, TownSquare, GameOver
     };
     public States currentState;
     public Text textobject;
@@ -42,10 +42,6 @@ public class Adventure : MonoBehaviour
         else if (currentState == States.Celler)
         {
             Celler();
-        }
-        else if (currentState == States.Armory)
-        {
-            Armory();
         }
         else if (currentState == States.Tower)
         {
@@ -111,6 +107,10 @@ public class Adventure : MonoBehaviour
         {
             Cave();
         }
+        else if (currentState == States.GameOver)
+        {
+            GameOver();
+        }
     }
 
     private void Barrocks()
@@ -120,14 +120,12 @@ public class Adventure : MonoBehaviour
             "Escape and survive. \n" +
             "\n" +
             "1. There is a Celler door in the middle of the room. \n" +
-            "2. There is a metal door leading to the Armory at the back of the room. \n" +
             "3. There is a large wooden door leading outside to the CourtYard. \n" +
-            "Press 1, 2, or 3. \n";
+            "Press 1 or 3 \n";
         Title.text = "Barrocks";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Celler; }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.Armory; }
-        if (Input.GetKeyDown(KeyCode.Alpha3)) { currentState = States.CourtYard; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.CourtYard; }
     }
 
     private void CourtYard()
@@ -160,21 +158,10 @@ public class Adventure : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.Barrocks; }
     }
 
-    private void Armory()
-    {
-        textobject.text = "To the contary of the name the Armory is pretty empty. \n" +
-            "Thats what you get for over sleeping.\n \n" +
-            "1. Go back to the Barrocks.";
-        Title.text = "Armory";
-
-
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Barrocks; }
-    }
-
     private void Tower()
     {
-        print("");
-        textobject.text = "1. TowerWall. \n" +
+        textobject.text = "One of many towers surounding the castle built from stone and can withstand most attacks. \n " +
+            "1. TowerWall. \n" +
             "2. CourtYard.";
         Title.text = "Tower";
 
@@ -184,8 +171,8 @@ public class Adventure : MonoBehaviour
 
     private void TowerWall()
     {
-        print("");
-        textobject.text = "1. Gate. \n" +
+        textobject.text = "At the top of the tower you can see the over the wall and get a good grasp of land.\n" +
+            "1. Gate. \n" +
             "2. Tower.";
         Title.text = "TowerWall";
 
@@ -198,22 +185,22 @@ public class Adventure : MonoBehaviour
         print("");
         textobject.text = "You have reached the gate and have been able to close it stoping the enemy from entering the kingdom.\n" +
             "The remaining enemy troops have been delt with by your fellow knights.\n" +
-            "";
-        Title.text = "Gate";
+            "For your valiant effort in saving the kingdom you are given a hefty reward and paid time off so you can sleep in as much as you want.";
+        Title.text = "Gate:\n" +
+            "You Win";
+
         {
             if (Input.GetKeyDown(KeyCode.O))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            textobject.text = "Thanks for playing";
-            Title.text = "Game Over";
+
+            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.CourtYard; }
         }
     }
 
     private void Crack()
     {
-        textobject.text = "1. Celler. \n" +
+        textobject.text = "There is a small breaze coming from the hole in the wall, There may be a way out of the kingdom from with in, But the entrence looks unstable." +
+            "1. Celler. \n" +
             "2. Cave.";
         Title.text = "Crack";
 
@@ -224,9 +211,10 @@ public class Adventure : MonoBehaviour
 
     private void Cave()
     {
-        textobject.text = "1. RT.\n" +
-            "2. MT. \n" +
-            "3. LT";
+        textobject.text = "Crap! The entrence to the cave just collapsed...I guess there is no where else but going forward. There are three tunnels which one should You take." +
+            "1. Right Tunnel.\n" +
+            "2. Middle Tunnel. \n" +
+            "3. Lelft Tunnel";
         Title.text = "Cave";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.RT; }
@@ -236,8 +224,9 @@ public class Adventure : MonoBehaviour
 
     private void RT()
     {
-        textobject.text = "1. cave.\n" +
-            "2. Skylight.";
+        textobject.text = "Its cold and damp, but you can see a bit of ruble " +
+            "1. cave.\n" +
+            "2. ruble.";
         Title.text = "Right Tunnel";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Cave; }
@@ -246,8 +235,10 @@ public class Adventure : MonoBehaviour
 
     private void SkyLight()
     {
-        textobject.text = "1. freedom" +
-            "2. RT";
+        textobject.text = "You see light, this leads to the surface. But, now the question is dose it lead to freedom or right into the enemy.\n" +
+            "Maybe there is a safer way out, and is it really ok to leave everyone else behind?" +
+            "1. freedom?" +
+            "2. Right Tunnel";
         Title.text = "SkyLight";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Freedom; }
@@ -256,24 +247,25 @@ public class Adventure : MonoBehaviour
 
     private void Freedom()
     {
-        textobject.text = "You Win\n" +
+        textobject.text = "Congrates your gamble paid off you are ontop of a hill over looking the kingdom as it is overtaken. You may have lived but at what cost?" +
+            "You Win\n" +
             "Wanna play again?\n" +
             "X  or  O";
         Title.text = "Freedom";
+
         {
             if (Input.GetKeyDown(KeyCode.O))
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            textobject.text ="Thanks for playing";
-            Title.text = "Game Over";
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.GameOver; }
         }
     }
 
     private void MT()
     {
-        textobject.text = "";
+        textobject.text = "The tunnel is cold and damp, You see a soft light up a head. It leads to old StoneStairs leading down, it could lead to a mine shaft with an exit.\n" +
+            "1. Go down The Stone Stairs.\n" +
+            "2. G back to the cave a try a diffrent tunnel.";
         Title.text = "Middle Tunnel";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.StoneStairsDown; }
@@ -291,7 +283,9 @@ public class Adventure : MonoBehaviour
 
     private void OldRuins()
     {
-        textobject.text = "";
+        textobject.text = "The stairs might not have lead to a mine shaft but it did lead to old ruins forgotten by the kingdom. There is a sound coming deeper into the ruins, sounds like people.\n" +
+            "1. Go and investigate the sounds" +
+            "2. Lets head back up the stairs";
         Title.text = "OldRuins";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.EvilCult; }
@@ -300,22 +294,25 @@ public class Adventure : MonoBehaviour
 
     private void EvilCult()
     {
-        textobject.text = "You lose";
+        textobject.text = "As you got closer to the sounds you are ambushed by members of an evil cult who use these ruins as a place to practive thier evil magic.\n" +
+            "You are taken to the leader and are now being prepaird to be used for a human sacrifice for one of their dark rituals.\n" +
+            "You lose";
         Title.tag = "EvilCult";
         {
             if (Input.GetKeyDown(KeyCode.O))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKeyDown(KeyCode.X))
         {
-            textobject.text = "Thanks for playing";
-            Title.text = "Game Over";
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.GameOver; }
         }
     }
 
     private void LT()
     {
-        textobject.text = "";
+        textobject.text = "The tunnel is dark and damp, it looks like it gose on further than you expected, maybe that means it leads to the exit.";
         Title.text = "Left Tunnel";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Hole; }
@@ -332,10 +329,11 @@ public class Adventure : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.O))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (Input.GetKeyDown(KeyCode.X))
         {
-            textobject.text = "Thanks for playing";
-            Title.text = "Game Over";
+            if (Input.GetKeyDown(KeyCode.O))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.GameOver; }
         }
     }
 
@@ -352,18 +350,22 @@ public class Adventure : MonoBehaviour
     private void TownsSpuare()
     {
         textobject.text = "You lose.\n" +
-            "Wanna play again?" +
+            "" +
+            "Wanna play again?\n" +
             "X  or  O";
         Title.text = "Enemys.";
         {
             if (Input.GetKeyDown(KeyCode.O))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            textobject.text = "Thanks for playing";
-            Title.text = "Game Over";
+
+            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.GameOver; }
         }
     }
+    private void GameOver()
+    {
+        textobject.text = "Thanks for Playing";
+        Title.text = "Game Over";
+    }
+
 
 }

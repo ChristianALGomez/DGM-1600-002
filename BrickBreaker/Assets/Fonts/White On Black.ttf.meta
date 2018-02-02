@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1e418137846fdda4baf3e67375dc6b72
+timeCreated: 1517588154
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: White On Black
+  fontNames:
+  - White On Black
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
