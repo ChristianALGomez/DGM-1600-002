@@ -10,8 +10,7 @@ public class Adventure : MonoBehaviour
     // change States to own states for knight game
     public enum States
     {
-        Barrocks, Celler, CourtYard, Tower, Gate, Crack, Cave, RT, MT, LT, Hole,
-        StoneStairsDown, OldRuins, EvilCult, MainSt, SkyLight, Freedom, TowerWall, TownSquare, GameOver
+        Barrocks, Celler, CourtYard, Tower, Gate, Crack, Cave, RT, MT, LT, Hole, OldRuins, EvilCult, MainSt, SkyLight, Freedom, TowerWall, TownSquare, GameOver
     };
     public States currentState;
     public Text textobject;
@@ -79,10 +78,6 @@ public class Adventure : MonoBehaviour
         {
             Freedom();
         }
-        else if (currentState == States.StoneStairsDown)
-        {
-            StoneStairsDown();
-        }
         else if (currentState == States.OldRuins)
         {
             OldRuins();
@@ -120,8 +115,8 @@ public class Adventure : MonoBehaviour
             "Escape and survive. \n" +
             "\n" +
             "1. There is a Celler door in the middle of the room. \n" +
-            "3. There is a large wooden door leading outside to the CourtYard. \n" +
-            "Press 1 or 3 \n";
+            "2. There is a large wooden door leading outside to the CourtYard. \n" +
+            "Press 1 or 2 \n";
         Title.text = "Barrocks";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Celler; }
@@ -185,7 +180,10 @@ public class Adventure : MonoBehaviour
         print("");
         textobject.text = "You have reached the gate and have been able to close it stoping the enemy from entering the kingdom.\n" +
             "The remaining enemy troops have been delt with by your fellow knights.\n" +
-            "For your valiant effort in saving the kingdom you are given a hefty reward and paid time off so you can sleep in as much as you want.";
+            "For your valiant effort in saving the kingdom you are given a hefty reward and paid time off so you can sleep in as much as you want.\n" +
+            "\n" +
+            "Want to play again?\n" +
+            "X  or  O";
         Title.text = "Gate:\n" +
             "You Win";
 
@@ -193,13 +191,13 @@ public class Adventure : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.O))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.CourtYard; }
+            else if (Input.GetKeyDown(KeyCode.X)) { currentState = States.GameOver; }
         }
     }
 
     private void Crack()
     {
-        textobject.text = "There is a small breaze coming from the hole in the wall, There may be a way out of the kingdom from with in, But the entrence looks unstable." +
+        textobject.text = "There is a small breaze coming from the hole in the wall, There may be a way out of the kingdom from with in, But the entrence looks unstable.\n" +
             "1. Celler. \n" +
             "2. Cave.";
         Title.text = "Crack";
@@ -211,7 +209,7 @@ public class Adventure : MonoBehaviour
 
     private void Cave()
     {
-        textobject.text = "Crap! The entrence to the cave just collapsed...I guess there is no where else but going forward. There are three tunnels which one should You take." +
+        textobject.text = "Crap! The entrence to the cave just collapsed...I guess there is no where else but going forward. There are three tunnels which one should You take.\n" +
             "1. Right Tunnel.\n" +
             "2. Middle Tunnel. \n" +
             "3. Lelft Tunnel";
@@ -224,7 +222,7 @@ public class Adventure : MonoBehaviour
 
     private void RT()
     {
-        textobject.text = "Its cold and damp, but you can see a bit of ruble " +
+        textobject.text = "Its cold and damp, but you can see a bit of ruble.\n " +
             "1. cave.\n" +
             "2. ruble.";
         Title.text = "Right Tunnel";
@@ -236,8 +234,8 @@ public class Adventure : MonoBehaviour
     private void SkyLight()
     {
         textobject.text = "You see light, this leads to the surface. But, now the question is dose it lead to freedom or right into the enemy.\n" +
-            "Maybe there is a safer way out, and is it really ok to leave everyone else behind?" +
-            "1. freedom?" +
+            "Maybe there is a safer way out, and is it really ok to leave everyone else behind?\n" +
+            "1. freedom?\n" +
             "2. Right Tunnel";
         Title.text = "SkyLight";
 
@@ -247,7 +245,7 @@ public class Adventure : MonoBehaviour
 
     private void Freedom()
     {
-        textobject.text = "Congrates your gamble paid off you are ontop of a hill over looking the kingdom as it is overtaken. You may have lived but at what cost?" +
+        textobject.text = "Congrates your gamble paid off you are ontop of a hill over looking the kingdom as it is overtaken. You may have lived but at what cost?\n" +
             "You Win\n" +
             "Wanna play again?\n" +
             "X  or  O";
@@ -268,15 +266,6 @@ public class Adventure : MonoBehaviour
             "2. G back to the cave a try a diffrent tunnel.";
         Title.text = "Middle Tunnel";
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.StoneStairsDown; }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.Cave; }
-    }
-
-    private void StoneStairsDown()
-    {
-        textobject.text = "";
-        Title.text = "StoneStairs";
-
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.OldRuins; }
         if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.Cave; }
     }
@@ -284,20 +273,22 @@ public class Adventure : MonoBehaviour
     private void OldRuins()
     {
         textobject.text = "The stairs might not have lead to a mine shaft but it did lead to old ruins forgotten by the kingdom. There is a sound coming deeper into the ruins, sounds like people.\n" +
-            "1. Go and investigate the sounds" +
-            "2. Lets head back up the stairs";
+            "1. Go and investigate the sounds.\n" +
+            "2. Lets head back up the stairs.";
         Title.text = "OldRuins";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.EvilCult; }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.StoneStairsDown; }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { currentState = States.MT; }
     }
 
     private void EvilCult()
     {
         textobject.text = "As you got closer to the sounds you are ambushed by members of an evil cult who use these ruins as a place to practive thier evil magic.\n" +
             "You are taken to the leader and are now being prepaird to be used for a human sacrifice for one of their dark rituals.\n" +
-            "You lose";
-        Title.tag = "EvilCult";
+            "You lose.\n" +
+            "Want to play again?\n" +
+            "X  or O";
+        Title.text = "EvilCult";
         {
             if (Input.GetKeyDown(KeyCode.O))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -312,7 +303,9 @@ public class Adventure : MonoBehaviour
 
     private void LT()
     {
-        textobject.text = "The tunnel is dark and damp, it looks like it gose on further than you expected, maybe that means it leads to the exit.";
+        textobject.text = "The tunnel is dark and damp, it looks like it gose on further than you expected, maybe that means it leads to the exit.\n" +
+            "1. Go further down the tunnel.\n" +
+            "2. Lets go back.";
         Title.text = "Left Tunnel";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.Hole; }
@@ -321,7 +314,9 @@ public class Adventure : MonoBehaviour
 
     private void Hole()
     {
-        textobject.text = "You Lose\n" +
+        textobject.text = "Oh No! There was a drop off that you didnt see. Even though you survived the initial fall you are unable to return to the surface.\n" +
+            " You will live the rest of your probably short life at the bottom of the tunnel.\n" +
+            "You Lose\n" +
             "Want to play agian?\n" +
             "X  or  O";
         Title.text = "Hole";
@@ -339,8 +334,9 @@ public class Adventure : MonoBehaviour
 
     private void MainSt()
     {
-        textobject.text = "1. CourtYard. \n" +
-            "2. TownSquare ";
+        textobject.text = "The usual calm Main Streat is now filled with the sound of the battles raging around. All you need to do is head to the TownSquare and then the gate will be just a hop and a skip away.\n" +
+            "1. Go back to the CourtYard. \n" +
+            "2. Forward to the TownSquare ";
         Title.text = "MainSt.";
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) { currentState = States.CourtYard; }
@@ -349,7 +345,8 @@ public class Adventure : MonoBehaviour
 
     private void TownsSpuare()
     {
-        textobject.text = "You lose.\n" +
+        textobject.text = "You have just ran into a group of enemys. There is no escape and you are now just another casualty of war.\n" +
+            "You lose.\n" +
             "" +
             "Wanna play again?\n" +
             "X  or  O";
