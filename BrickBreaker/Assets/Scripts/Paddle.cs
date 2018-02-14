@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour {
 
+    public bool autoPlay;
+    private GameObject ball;
+
+    private void Start()
+    {
+        ball = FindObjectOfType<BallSound>().gameObject;
+        //ball = FindObjectOfType<ball>().gameObject;
+    }
+
     void Update()
     {
         //get current paddle positiion
         Vector3 paddlePosition = new Vector3(0, gameObject.transform.position.y, 0);
 
-        //get mouse horizontal position
-        float mousePositionInBlocks = Input.mousePosition.x / Screen.width * 15 - 7.5f;
+        if (autoPlay)
+        {
+            paddlePosition.x = ball.transform.position.x;
+        }
+        else
+        {
 
-        paddlePosition.x = mousePositionInBlocks;
+            //get mouse horizontal position
+            float mousePositionInBlocks = Input.mousePosition.x / Screen.width * 15 - 7.5f;
+
+            paddlePosition.x = mousePositionInBlocks;
+        }
 
 
         //set this paddle ovject to saved position
