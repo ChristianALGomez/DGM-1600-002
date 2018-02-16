@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int startingHealth = 3;
-    public int currentHealth;
-    public AudioClip deathClip;
+    public GameManger theGameManger;
+    public int CurrentHealth;
 
-    bool isDead;
-    bool fall;
 
-    void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        Debug.Log("object Entered teh trigger");
+        theGameManger = FindObjectOfType<GameManger>();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void DeadBall()
     {
-        Debug.Log("object exited the trigger");
+        CurrentHealth--;
+        print("dose tlhis work");
+        
     }
 
-    private void Awake()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        currentHealth = startingHealth;
+        DeadBall();
+
+        if (CurrentHealth == 0)
+            theGameManger.LoadLevel("GameOver");
     }
 
-    public void falling (int amount)
-    {
-        fall = true;
-        currentHealth -= amount;
-    }
+
 }

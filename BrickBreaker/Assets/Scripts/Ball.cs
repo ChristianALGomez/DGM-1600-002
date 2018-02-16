@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallSound : MonoBehaviour {
+public class Ball : MonoBehaviour {
 
     public AudioClip hitsound;
 

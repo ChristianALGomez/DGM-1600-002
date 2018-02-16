@@ -9,7 +9,7 @@ public class Paddle : MonoBehaviour {
 
     private void Start()
     {
-        ball = FindObjectOfType<BallSound>().gameObject;
+        ball = FindObjectOfType<Ball>().gameObject;
         //ball = FindObjectOfType<ball>().gameObject;
     }
 
