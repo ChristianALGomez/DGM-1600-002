@@ -78,4 +78,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theGameManger: {fileID: 0}
-  CurrentHealth: 1
+  CurrentHealth: 2

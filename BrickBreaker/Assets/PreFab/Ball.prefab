@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.3
   m_Material: {fileID: 6200000, guid: 13a974385af91c942bfc5d1857bf0127, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsound: {fileID: 8300000, guid: 79b7af366c40dfd4fb570b70731d6cc1, type: 3}
+  startSVector: {x: -400, y: -400}
 --- !u!212 &212701013718759060
 SpriteRenderer:
   m_ObjectHideFlags: 1

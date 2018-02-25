@@ -99,7 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122f73af63abecb468466e3ca8f21144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 4
+  sprites:
+  - {fileID: 21300000, guid: f67792843cdcd1a40805f8cf319e16dd, type: 3}
+  - {fileID: 21300006, guid: f67792843cdcd1a40805f8cf319e16dd, type: 3}
+  - {fileID: 21300004, guid: f67792843cdcd1a40805f8cf319e16dd, type: 3}
+  - {fileID: 21300002, guid: f67792843cdcd1a40805f8cf319e16dd, type: 3}
+  - {fileID: 21300000, guid: f67792843cdcd1a40805f8cf319e16dd, type: 3}
 --- !u!212 &212803269740153226
 SpriteRenderer:
   m_ObjectHideFlags: 1

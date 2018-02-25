@@ -10,6 +10,9 @@ public class GameManger : MonoBehaviour
     public static int BrickCount;
     public static int BLC;
     public GameObject[] LD;
+    private object currentScene;
+    
+
 
     void Awake()
     {
@@ -24,6 +27,11 @@ public class GameManger : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+        //ChangeLD();
+    }
+    // activate ChangeLD when lvl is finished loading
+    private void OnLevelWasLoaded(int level)
+    {
         ChangeLD();
     }
 
@@ -40,7 +48,7 @@ public class GameManger : MonoBehaviour
             }
         }
         //if current lvl is menu over/win turn it off
-        else
+        else 
         {
             for (int i = 0; i < LD.Length; i++)
             {
