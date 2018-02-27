@@ -5,22 +5,27 @@ using UnityEngine;
 public class floor : MonoBehaviour {
 
     public GameManger theGameManger;
-    public int HP;
 
     private void Start()
     {
-        theGameManger = FindObjectOfType<GameManger>();
+        theGameManger = GameObject.Find("GameManager").GetComponent<GameManger>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("GameOver!!");
         //theGameManger.LoadLevel("GameOver");
-        HP--;
+        theGameManger.HP--;
+        Destroy(collision.gameObject);
 
-        if (HP <= 0)
+        if (theGameManger.HP <= 0)
         {
             theGameManger.LoadLevel("GameOver");
         }
+        if (theGameManger.HP > 0)
+        {
+            theGameManger.Respawn();
+        }
+        theGameManger.ChangeLD();
     }
 }

@@ -199,6 +199,8 @@ MonoBehaviour:
   - {fileID: 1856387283894494}
   - {fileID: 1663236876030036}
   - {fileID: 1650567113701176}
+  HP: 3
+  ball: {fileID: 1997294080912216, guid: a5afe274a03ecb449bc418215c911cfc, type: 2}
 --- !u!212 &212506137869254412
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -8,10 +8,20 @@ public class GameManger : MonoBehaviour
 
     public static GameManger instance = null;
     public static int BrickCount;
-    public static int BLC;
     public GameObject[] LD;
+    public int HP;
+    public GameObject ball;
     private object currentScene;
-    
+
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            HP = 3;
+        }
+
+    }
 
 
     void Awake()
@@ -34,6 +44,12 @@ public class GameManger : MonoBehaviour
     {
         ChangeLD();
     }
+    public void Respawn()
+    {
+        Instantiate(ball);
+
+    }
+
 
     public void ChangeLD()
     {
@@ -52,14 +68,15 @@ public class GameManger : MonoBehaviour
         {
             for (int i = 0; i < LD.Length; i++)
             {
-                LD[i].SetActive(true);
+                LD[i].SetActive(false);
+                if (HP - 1 >= i)
+                {
+                    LD[i].SetActive(true);
+                }
 
             }
         }
-
-            //if display on lvl show it
-            //check life count
-        }
+    }
 
     public void LoadLevel(string level)
     {
@@ -74,5 +91,12 @@ public class GameManger : MonoBehaviour
         BrickCount = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //load next scene going up by 1
         ChangeLD();
+    }
+
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game");
+        Application.Quit();
     }
 }
