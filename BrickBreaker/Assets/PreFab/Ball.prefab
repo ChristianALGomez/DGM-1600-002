@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsound: {fileID: 8300000, guid: 79b7af366c40dfd4fb570b70731d6cc1, type: 3}
-  startSVector: {x: -200, y: -200}
+  startSVector: {x: -300, y: -300}
 --- !u!198 &198608536763757452
 ParticleSystem:
   m_ObjectHideFlags: 1
