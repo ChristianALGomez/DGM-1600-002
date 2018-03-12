@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D rigid;
     public float speed;
+    public float jumpPower;
+    public bool Grounded = true;
     private Animator anim;
     private SpriteRenderer rend;
 
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         //check for button pushes
 
+        
 
         rigid.AddForce(new Vector2(Input.GetAxis("Horizontal") * speed, 0), ForceMode2D.Force);
         anim.SetFloat("HorizontalGo", Input.GetAxisRaw("Horizontal"));
@@ -37,5 +40,32 @@ public class PlayerMovement : MonoBehaviour {
             //unflip
             rend.flipX = false;
         }
-	}
+        if (Input.GetButton("Fire1"))
+        {
+            anim.SetTrigger("FireGo");
+        }
+        if (Grounded && Input.GetButtonDown("Jump"))
+        {
+            rigid.AddForce(new Vector2(0, jumpPower), ForceMode2D.Force);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Ground")
+        {
+            Grounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Ground")
+        {
+            Grounded = false;
+        }
+    }
 }
+
+
+
