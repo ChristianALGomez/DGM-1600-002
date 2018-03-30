@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GameManger : MonoBehaviour {
 
-    public static GameManger instance = null;
     public GameObject[] LD;
     public int HP;
     private object currentScene;
@@ -21,29 +20,7 @@ public class GameManger : MonoBehaviour {
         }
 
     }
-
-    void Awake()
-    {
-
-        //Singleton
-        if (instance == null)  //if instance is not assigned
-        {
-            instance = this;  //then assign instance to this object
-        }
-        else if (instance != this)
-        {
-            Destroy(this.gameObject);  //then destroy this object
-        }
-
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    public void Respawn()
-    {
-        Instantiate(player);
-
-    }
-
+   
     public void ChangeLD()
     {
         //
@@ -72,11 +49,12 @@ public class GameManger : MonoBehaviour {
     public void LoadLevel(string level)
     {
         SceneManager.LoadScene(level);
+        ChangeLD();
     }
 
     public void LoadNextLevel()
     {
-       
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //load next scene going up by 1
+        ChangeLD();
     }
 }

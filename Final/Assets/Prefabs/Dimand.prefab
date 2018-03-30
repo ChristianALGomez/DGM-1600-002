@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4198159495696438}
   - component: {fileID: 212968698641706850}
   - component: {fileID: 95090668944226372}
-  - component: {fileID: 114966975015540472}
   - component: {fileID: 61079330847708390}
+  - component: {fileID: 114089875639956588}
   m_Layer: 10
   m_Name: Dimand
   m_TagString: Ground
@@ -85,7 +85,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114966975015540472
+--- !u!114 &114089875639956588
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,10 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1090413254753778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33662b8551c702f45b1863b3b9adf4c9, type: 3}
+  m_Script: {fileID: 11500000, guid: e63cd9e8b88c9e441ab7d03407bebcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  healthScript: {fileID: 0}
   deathParticle: {fileID: 198431951152181092, guid: d4cdc8d7c63c62548a593577f9d273e4,
     type: 2}
 --- !u!212 &212968698641706850

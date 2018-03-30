@@ -9,15 +9,29 @@ public class PowerUp : MonoBehaviour {
     public Power powerupType;
     public SpriteRenderer rend;
     public Sprite[] images;
+    public Animation[] graphics;
+    public Animator animator;
 
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
     }
 
-
     private void Update()
     {
+        switch (powerupType)
+        {
+            case Power.Health:
+                //play.anim = anims[0];
+                //animator. = images[0];
+                break;
+            case Power.Speed:
+                break;
+            default:
+                break;
+        }
+
+
         switch (powerupType)
         {
             case Power.Health:
@@ -31,6 +45,19 @@ public class PowerUp : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("PowerUP");
+        switch (powerupType)
+        {
+            case Power.Health:
+                collider.GetComponent<Health>().IncrementHealth(1);
 
+                break;
+            case Power.Speed:
+                break;
+        }
+        Destroy(gameObject);
+    }
 
 }
