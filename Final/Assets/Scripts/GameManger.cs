@@ -17,13 +17,14 @@ public class GameManger : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().name == "Menu")
         {
-            HP = 4;
+            HP = 3;
         }
 
     }
 
     void Awake()
     {
+
         //Singleton
         if (instance == null)  //if instance is not assigned
         {
@@ -35,6 +36,12 @@ public class GameManger : MonoBehaviour {
         }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void Respawn()
+    {
+        Instantiate(player);
+
     }
 
     public void ChangeLD()
@@ -49,7 +56,7 @@ public class GameManger : MonoBehaviour {
 
             }
         }
-        //if current lvl is menu over/win turn it off
+        //if current lvl is not menu over/win turn it on
         else
         {
             for (int i = 0; i < LD.Length; i++)
@@ -62,6 +69,11 @@ public class GameManger : MonoBehaviour {
             }
         }
     }
+    public void LoadLevel(string level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
     public void LoadNextLevel()
     {
        

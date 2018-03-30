@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
-    bool IsGrounded()
+    /*bool IsGrounded()
     {
         Vector2 position = transform.position;
         Vector2 direction = Vector2.down;
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
 
         return false;
 
-    }
+    }*/
 
     void OnCollisionEnter2D(Collision2D collision)
     {
