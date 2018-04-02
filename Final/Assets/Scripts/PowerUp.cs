@@ -32,17 +32,17 @@ public class PowerUp : MonoBehaviour {
         }
 
 
-        switch (powerupType)
+        /*switch (powerupType)
         {
             case Power.Health:
                 //do some stuff
-                rend.sprite = images[0];
+                //rend.sprite = images[0];
                 break;
             case Power.Speed:
                 rend.sprite = images[1];
                 //do some other stuff
                 break;
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

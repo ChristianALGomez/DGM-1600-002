@@ -347,6 +347,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3aa2810c35357de46b705ee102b73a35, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &716540144 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114944260035250950, guid: 3aa2810c35357de46b705ee102b73a35,
+    type: 2}
+  m_PrefabInternal: {fileID: 716540143}
+  m_Script: {fileID: 11500000, guid: c8de360c0e2ace643baeafe02ead1ac5, type: 3}
 --- !u!1 &786778510
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 858818002}
+      - m_Target: {fileID: 716540144}
         m_MethodName: LoadLevel
         m_Mode: 5
         m_Arguments:
@@ -469,12 +475,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 786778510}
---- !u!114 &858818002 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114079280757462896, guid: 3aa2810c35357de46b705ee102b73a35,
-    type: 2}
-  m_PrefabInternal: {fileID: 716540143}
-  m_Script: {fileID: 11500000, guid: 10b55233278c53a4d836112ed299142e, type: 3}
 --- !u!1 &1272506381
 GameObject:
   m_ObjectHideFlags: 0

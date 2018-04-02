@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour
 {
-    public GameManger theGameManger;
+
+    public Manager theGameManger;
 
     private void Start()
     {
-        theGameManger = GameObject.Find("GameManager").GetComponent<GameManger>();
+        theGameManger = GameObject.Find("GameManager").GetComponent<Manager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +25,7 @@ public class Floor : MonoBehaviour
         }
         if (theGameManger.HP > 0)
         {
-            //theGameManger.Respawn();
+            theGameManger.Respawn();
         }
         theGameManger.ChangeLD();
     }

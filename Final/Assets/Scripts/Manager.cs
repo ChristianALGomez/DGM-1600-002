@@ -1,26 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManger : MonoBehaviour {
+public class Manager : MonoBehaviour
+{
 
+    public static Manager instance = null;
     public GameObject[] LD;
     public int HP;
-    private object currentScene;
+    public object currentScene;
     public GameObject player;
+
+    // public Health HP;
 
 
 
     private void Update()
     {
+        //HP = GetComponent<Health>();
         if (SceneManager.GetActiveScene().name == "Menu")
         {
-            HP = 3;
+            HP = 2;
         }
 
     }
-   
+    void Awake()
+    {
+        //Singleton
+        if (instance == null)  //if instance is not assigned
+        {
+            instance = this;  //then assign instance to this object
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);  //then destroy this object
+        }
+
+        //DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        ChangeLD();
+    }
+
+    public void Respawn()
+    {
+        GameObject newplayer = Instantiate(player);
+        Camera.main.GetComponent<CameraMovment>().player = newplayer;
+    }
+
     public void ChangeLD()
     {
         //

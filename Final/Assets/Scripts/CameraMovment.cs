@@ -30,7 +30,12 @@ public class CameraMovment : MonoBehaviour {
 
     private void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        if (player != null)
+        {
+            transform.position = player.transform.position + offset;
+        }
+        
     }
+    
     
 }

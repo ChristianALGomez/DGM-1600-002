@@ -81,8 +81,8 @@
     <Compile Include="Assets\Scripts\CameraMovment.cs" />
     <Compile Include="Assets\Scripts\Destrucable.cs" />
     <Compile Include="Assets\Scripts\Floor.cs" />
-    <Compile Include="Assets\Scripts\GameManger.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />
   </ItemGroup>
