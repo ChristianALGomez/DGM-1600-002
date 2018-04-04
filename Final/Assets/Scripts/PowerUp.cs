@@ -17,7 +17,7 @@ public class PowerUp : MonoBehaviour {
         rend = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    /*private void Update()
     {
         switch (powerupType)
         {
@@ -42,21 +42,24 @@ public class PowerUp : MonoBehaviour {
                 rend.sprite = images[1];
                 //do some other stuff
                 break;
-        }*/
-    }
+        }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+
         Debug.Log("PowerUP");
         switch (powerupType)
         {
             case Power.Health:
-                collider.GetComponent<Health>().IncrementHealth(1);
+                collider.GetComponent<Manager>().IncrementHP(1);
+                GetComponent<Manager>().ChangeLD();
 
                 break;
             case Power.Speed:
                 break;
         }
+
         Destroy(gameObject);
     }
 

@@ -87,4 +87,18 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);  //load next scene going up by 1
         ChangeLD();
     }
+
+    public void IncrementHP(int amount)
+    {
+        HP += amount;
+        if (HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
