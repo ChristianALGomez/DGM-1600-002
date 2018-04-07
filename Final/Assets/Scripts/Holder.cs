@@ -12,6 +12,6 @@ public class Holder : MonoBehaviour {
     public void IncrementScore(int value)
     {
         score += value;
-        scoreboard.text = score.ToString();
+        scoreboard.text = "Score: " + score.ToString();
     }
 }

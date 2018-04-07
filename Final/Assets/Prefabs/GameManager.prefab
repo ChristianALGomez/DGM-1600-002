@@ -200,7 +200,7 @@ MonoBehaviour:
   - {fileID: 1426928187558746}
   - {fileID: 1480154592274604}
   HP: 2
-  player: {fileID: 1058295921305268, guid: 3d2fa602388d10148aefb2f7723a7f24, type: 2}
+  player: {fileID: 1746139356502900}
 --- !u!212 &212225850957042376
 SpriteRenderer:
   m_ObjectHideFlags: 1

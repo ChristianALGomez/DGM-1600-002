@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212618196657020604}
   - component: {fileID: 95699632612918922}
   - component: {fileID: 61905351523365226}
-  - component: {fileID: 114916519454976854}
+  - component: {fileID: 114710644982685680}
   m_Layer: 0
   m_Name: HPowerUP
   m_TagString: PowerUp
@@ -77,7 +77,7 @@ Animator:
   m_GameObject: {fileID: 1783026829812762}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c349b120b7d19fa4b8b0b5a0f5540eee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -85,7 +85,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114916519454976854
+--- !u!114 &114710644982685680
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,14 +93,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1783026829812762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4235b84ce4c5d649b42a110ebc09917, type: 3}
+  m_Script: {fileID: 11500000, guid: 407f0cdffd5fbd243b8907ee1541f779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powerupType: 0
-  rend: {fileID: 212618196657020604}
-  images: []
-  graphics: []
-  animator: {fileID: 0}
+  pickupEffect: {fileID: 1149177083520116, guid: d4cdc8d7c63c62548a593577f9d273e4,
+    type: 2}
+  player: {fileID: 0}
 --- !u!212 &212618196657020604
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -100,5 +100,6 @@ public class Manager : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+        
     }
 }
