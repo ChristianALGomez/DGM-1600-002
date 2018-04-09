@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class Holder : MonoBehaviour {
 
     public Text scoreboard;
+    public Text levelDisplay;
     private int score;
+    
 
     public void IncrementScore(int value)
     {
