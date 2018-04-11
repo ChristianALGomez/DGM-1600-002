@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
 
 
 
-    private void Update()
+    private void Update() //HP
     {
         //HP = GetComponent<Health>();
         if (SceneManager.GetActiveScene().name == "Menu")
@@ -25,7 +25,7 @@ public class Manager : MonoBehaviour
         }
 
     }
-    void Awake()
+    void Awake() //singleton
     {
         //Singleton
         if (instance == null)  //if instance is not assigned
@@ -101,5 +101,11 @@ public class Manager : MonoBehaviour
     {
         Destroy(gameObject);
         
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
     }
 }
