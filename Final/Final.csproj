@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\HighScore.cs" />
     <Compile Include="Assets\Scripts\Holder.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
+    <Compile Include="Assets\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\SoulPack.cs" />
