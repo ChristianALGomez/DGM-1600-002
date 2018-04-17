@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286146523104014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.86, z: 0}
+  m_LocalPosition: {x: 0, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4035651915452074}
@@ -229,7 +229,7 @@ MonoBehaviour:
   jump: 0
   moveForce: 300
   maxSpeed: 1.5
-  jumpForce: 1000
+  jumpForce: 1100
   groundCheck: {fileID: 4987459647051830}
 --- !u!114 &114981236732558600
 MonoBehaviour:
@@ -331,7 +331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.07, y: 1.13}
+  m_AnchoredPosition: {x: 0.003, y: 0.98}
   m_SizeDelta: {x: 565, y: 318}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224726780108536820
