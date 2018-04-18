@@ -14,6 +14,7 @@ public class Floor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         print("GameOver!!");
         //theGameManger.LoadLevel("GameOver");
         theGameManger.HP--;
@@ -25,7 +26,6 @@ public class Floor : MonoBehaviour
         }
         if (theGameManger.HP > 0)
         {
-            
             theGameManger.Respawn();
         }
         theGameManger.ChangeLD();

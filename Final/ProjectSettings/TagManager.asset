@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PowerUp
+  - EVP
   layers:
   - Default
   - TransparentFX

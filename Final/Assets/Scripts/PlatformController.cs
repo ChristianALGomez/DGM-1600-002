@@ -11,6 +11,8 @@ public class PlatformController : MonoBehaviour
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
     public Transform groundCheck;
+    public GameObject DeathEffect;
+    public GameObject Floor;
 
 
     private SpriteRenderer rend;
@@ -83,6 +85,15 @@ public class PlatformController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "EVP")
+        {
+            // spawn cool effect
+            Instantiate(DeathEffect, transform.position, transform.rotation);
+        }
+    }
+        
 
     /*void Flip()
     {

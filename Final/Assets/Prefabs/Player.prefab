@@ -231,6 +231,9 @@ MonoBehaviour:
   maxSpeed: 1.5
   jumpForce: 1100
   groundCheck: {fileID: 4987459647051830}
+  DeathEffect: {fileID: 1149177083520116, guid: d4cdc8d7c63c62548a593577f9d273e4,
+    type: 2}
+  Floor: {fileID: 1103699078403340, guid: 9eca0f1bde506004bb4f43c1e0d06e02, type: 2}
 --- !u!114 &114981236732558600
 MonoBehaviour:
   m_ObjectHideFlags: 1

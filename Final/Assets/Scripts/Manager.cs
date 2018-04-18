@@ -14,8 +14,6 @@ public class Manager : MonoBehaviour
 
     // public Health HP;
 
-
-
     private void Update() //HP
     {
         //HP = GetComponent<Health>();
@@ -25,6 +23,7 @@ public class Manager : MonoBehaviour
         }
 
     }
+
     void Awake() //singleton
     {
         //Singleton
@@ -52,8 +51,6 @@ public class Manager : MonoBehaviour
         Camera.main.GetComponent<CameraMovment>().player = newplayer;
     }
 
-    
-
     public void ChangeLD()
     {
         //
@@ -79,6 +76,7 @@ public class Manager : MonoBehaviour
             }
         }
     }
+
     public void LoadLevel(string level)
     {
         SceneManager.LoadScene(level);
