@@ -25,6 +25,7 @@ public class Floor : MonoBehaviour
         }
         if (theGameManger.HP > 0)
         {
+            
             theGameManger.Respawn();
         }
         theGameManger.ChangeLD();

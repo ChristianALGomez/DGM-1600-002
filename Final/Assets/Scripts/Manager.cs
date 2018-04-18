@@ -47,9 +47,12 @@ public class Manager : MonoBehaviour
 
     public void Respawn()
     {
+        //yield return new WaitForSeconds(5);
         GameObject newplayer = Instantiate(player);
         Camera.main.GetComponent<CameraMovment>().player = newplayer;
     }
+
+    
 
     public void ChangeLD()
     {
