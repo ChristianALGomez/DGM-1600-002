@@ -73,6 +73,7 @@ public class Manager : MonoBehaviour
                 {
                     LD[i].SetActive(true);
                 }
+                DontDestroyOnLoad(this.gameObject);
             }
         }
     }

@@ -7,13 +7,13 @@ public class MoveOnTouch : MonoBehaviour
 
     [SerializeField]
     //private Vector3 velocity;
-    private bool moving;
+   // private bool moving;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            moving = true;
+            //moving = true;
             collision.collider.transform.SetParent(transform);
         }
     }
@@ -23,7 +23,7 @@ public class MoveOnTouch : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.collider.transform.SetParent(null);
-            moving = false;
+            //moving = false;
         }
     }
 
