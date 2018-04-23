@@ -82,7 +82,9 @@
     <Compile Include="Assets\Scripts\Collectables.cs" />
     <Compile Include="Assets\Scripts\Container.cs" />
     <Compile Include="Assets\Scripts\Destrucable.cs" />
+    <Compile Include="Assets\Scripts\Final_Time_Score.cs" />
     <Compile Include="Assets\Scripts\Floor.cs" />
+    <Compile Include="Assets\Scripts\GetScore.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HighScore.cs" />
     <Compile Include="Assets\Scripts\Holder.cs" />
@@ -92,8 +94,10 @@
     <Compile Include="Assets\Scripts\PlatformController.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\SoulPack.cs" />
     <Compile Include="Assets\Scripts\TakeDamage.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

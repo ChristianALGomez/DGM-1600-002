@@ -53,3 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreboard: {fileID: 0}
   levelDisplay: {fileID: 0}
+  score: {fileID: 11400000, guid: 9ad5c8c7eb2326f4dae35910b473b622, type: 2}
+  timerText: {fileID: 0}
