@@ -8,12 +8,8 @@ public class GetScore : MonoBehaviour {
     public Text scoreboard;
     public Score score;
 
-    void Start () {
+    void Start ()
+    {
         scoreboard.text = score.value.ToString();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

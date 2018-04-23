@@ -19,7 +19,7 @@ public class Manager : MonoBehaviour
         //HP = GetComponent<Health>();
         if (SceneManager.GetActiveScene().name == "Menu")
         {
-            HP = 2;
+            HP = 1;
         }
 
     }

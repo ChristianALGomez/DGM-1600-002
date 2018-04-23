@@ -8,11 +8,12 @@ public class Holder : MonoBehaviour {
 
     private Holder instance;
     public Text scoreboard;
-    public Text levelDisplay;
+    //public Text levelDisplay;
     //private int score;
     public Score score;
     public Text timerText;
     private float startTime;
+    //public Clock startTime;
 
     /*public void Awake() //singlton
     {
