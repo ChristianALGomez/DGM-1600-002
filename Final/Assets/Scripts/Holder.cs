@@ -14,20 +14,21 @@ public class Holder : MonoBehaviour {
     public Text timerText;
     private float startTime;
     //public Clock startTime;
+    private bool finnished = false;
 
-    /*public void Awake() //singlton
+    public void Awake() //singlton
     {
-        if (instance == null)  //if instance is not assigned
+        /*if (instance == null)  //if instance is not assigned
         {
             instance = this.gameObject.GetComponent<Holder>();  //then assign instance to this object
         }
         else if (instance != this)
         {
             Destroy(this.gameObject);  //then destroy this object
-        }
+        }*/
 
         DontDestroyOnLoad(gameObject);
-    }*/
+    }
     void Start()
     {
         startTime = Time.time;
@@ -36,6 +37,9 @@ public class Holder : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (finnished)
+            return;
+ 
         float t = Time.time - startTime;
 
         string minutes = ((int)t / 60).ToString();
@@ -44,7 +48,13 @@ public class Holder : MonoBehaviour {
         timerText.text = minutes + ":" + seconds;
     }
 
-    public void IncrementScore(int value)
+    public void Finished()
+    {
+        finnished = true;
+        timerText.color = Color.green;
+    }
+
+        public void IncrementScore(int value)
     {
         score.value += value;
         scoreboard.text = "Score: " + score.value.ToString();

@@ -541,7 +541,7 @@ MonoBehaviour:
   - {fileID: 1735397499302466}
   - {fileID: 1080490387032672}
   - {fileID: 1347837964647918}
-  HP: 1
+  HP: {fileID: 11400000, guid: 8b7e0c566ea35ac4183a6baa23d6a958, type: 2}
   player: {fileID: 1058295921305268, guid: 3d2fa602388d10148aefb2f7723a7f24, type: 2}
 --- !u!124 &124019550117022374
 Behaviour:

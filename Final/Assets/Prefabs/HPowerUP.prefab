@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783026829812762}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.72, y: -0.6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.6, y: 1.0199995, z: 0}
   m_LocalScale: {x: 1.6685553, y: 1.6685566, z: 1.6685566}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   pickupEffect: {fileID: 1149177083520116, guid: d4cdc8d7c63c62548a593577f9d273e4,
     type: 2}
   player: {fileID: 0}
+  managerScript: {fileID: 0}
 --- !u!212 &212618196657020604
 SpriteRenderer:
   m_ObjectHideFlags: 1

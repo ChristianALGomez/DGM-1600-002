@@ -8,13 +8,14 @@ public class Manager : MonoBehaviour
 
     public static Manager instance = null;
     public GameObject[] LD;
-    public int HP;
+    //public int HP;
+    public HP HP;
     public object currentScene;
     public GameObject player;
 
     // public Health HP;
 
-    private void Update() //HP
+   /* private void Update() //HP
     {
         //HP = GetComponent<Health>();
         if (SceneManager.GetActiveScene().name == "Menu")
@@ -22,7 +23,7 @@ public class Manager : MonoBehaviour
             HP = 1;
         }
 
-    }
+    }*/
 
     void Awake() //singleton
     {
@@ -69,7 +70,7 @@ public class Manager : MonoBehaviour
             for (int i = 0; i < LD.Length; i++)
             {
                 LD[i].SetActive(false);
-                if (HP - 1 >= i)
+                if (HP.value - 1 >= i)
                 {
                     LD[i].SetActive(true);
                 }
@@ -92,8 +93,8 @@ public class Manager : MonoBehaviour
 
     public void IncrementHP(int amount)
     {
-        HP += amount;
-        if (HP <= 0)
+        HP.value += amount;
+        if (HP.value <= 0)
         {
             Die();
         }

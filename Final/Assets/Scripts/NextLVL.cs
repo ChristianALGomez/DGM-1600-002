@@ -11,11 +11,17 @@ public class NextLVL : MonoBehaviour
     private void Start()
     {
         theGameManger = GameObject.Find("GameManager").GetComponent<Manager>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-     
+
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        
     }
 }
