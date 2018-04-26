@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Holder : MonoBehaviour {
@@ -33,11 +34,17 @@ public class Holder : MonoBehaviour {
     {
         startTime = Time.time;
     }
+        
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
-        if (finnished)
+            if (SceneManager.GetActiveScene().name == "Menu")
+            {
+                Destroy(gameObject);
+            }
+
+            if (finnished)
             return;
  
         float t = Time.time - startTime;
