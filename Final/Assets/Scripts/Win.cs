@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Win : MonoBehaviour
-{
+public class Win : MonoBehaviour {
 
     public Manager theGameManger;
     public Holder EndTime;
@@ -17,7 +16,9 @@ public class Win : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         theGameManger.LoadLevel("GameWin");
         EndTime.Finished();
+
     }
 }
