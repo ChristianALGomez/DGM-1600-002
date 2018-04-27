@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114722733430387142}
   - component: {fileID: 114835580920452968}
   - component: {fileID: 114020658169796624}
-  - component: {fileID: 114932768820485618}
+  - component: {fileID: 114295987496680918}
   m_Layer: 5
   m_Name: CanvasTimeScore
   m_TagString: Untagged
@@ -81,6 +81,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 114663148150954110}
   startTime: {fileID: 11400000, guid: 0aee0633eb65dd3408710fbe7469344d, type: 2}
+--- !u!114 &114295987496680918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337373832955858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930ea31e7e8cba54e979245d0aee74c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114443638736118604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,17 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreboard: {fileID: 114443638736118604}
   score: {fileID: 11400000, guid: 9ad5c8c7eb2326f4dae35910b473b622, type: 2}
---- !u!114 &114932768820485618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1337373832955858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 930ea31e7e8cba54e979245d0aee74c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114953263671773722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 22.3, y: -22.5}
+  m_AnchoredPosition: {x: -4, y: -22.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!224 &224409050682924066

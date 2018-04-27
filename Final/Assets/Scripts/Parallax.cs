@@ -34,6 +34,7 @@ public class Parallax : MonoBehaviour {
         {
             float deltaX = cameraTranform.position.x - lastCameraX;
             transform.position += Vector3.right * (deltaX * paralaxSpeed);
+
         }
         
         lastCameraX = cameraTranform.position.x;

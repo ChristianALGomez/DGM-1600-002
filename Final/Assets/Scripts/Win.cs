@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLVL : MonoBehaviour
+public class Win : MonoBehaviour
 {
 
     public Manager theGameManger;
+    public Holder EndTime;
 
     private void Start()
     {
         theGameManger = GameObject.Find("GameManager").GetComponent<Manager>();
-        
+        EndTime = GameObject.Find("Holder").GetComponent<Holder>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+        theGameManger.LoadLevel("GameWin");
+        EndTime.Finished();
     }
 }
