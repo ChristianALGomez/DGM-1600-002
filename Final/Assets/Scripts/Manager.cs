@@ -56,7 +56,7 @@ public class Manager : MonoBehaviour
     {
         //
         //if current lvl is menu over/win turn it off
-        if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "GameWin")
+        if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "GameWin" || SceneManager.GetActiveScene().name == "intro")
         {
             for (int i = 0; i < LD.Length; i++)
             {
